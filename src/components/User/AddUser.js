@@ -10,28 +10,28 @@ const AddUser = (props) => {
 
   const AddUserHandler = (event) => {
     event.preventDefault();
-    console.log(enteredAge, enteredUsername)
+    console.log(enteredAge, enteredUsername);
   };
 
   const usernameChangeHandler = (event) => {
     setEnteredUsername(event.target.value);
-   
 
-  const ageChangeHandler = (event) => {
-    setEnteredAge(event.target.value);
+    const ageChangeHandler = (event) => {
+      setEnteredAge(event.target.value);
+    };
+
+    return (
+      <Card className={classes.input}>
+        <form onSubmit={AddUserHandler}>
+          <label htmlFor="username">Username</label>
+          <input id="username" type="text" onChange={usernameChangeHandler} />
+          <label htmlFor="age">Age</label>
+          <input id="age" type="number" onChange={ageChangeHandler} />
+          <Button type="sumit"> Add User</Button>
+        </form>
+      </Card>
+    );
   };
-
-  return (
-    <Card className={classes.input}>
-      <form onSubmit={AddUserHandler}>
-        <label htmlFor="username">Username</label>
-        <input id="username" type="text" onChange={usernameChangeHandler} />
-        <label htmlFor="age">Age</label>
-        <input id="age" type="number" onChange={ageChangeHandler} />
-        <Button type="sumit"> Add User</Button>
-      </form>
-    </Card>
-  );
 };
 
 export default AddUser;
